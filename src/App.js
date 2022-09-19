@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import high_five from './assets/high_five.gif';
+import StripeContainer from './components/PaymentForm';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [showItem, setShowItem] = useState(false);
+	return (
+		<div className='App'>
+			<h1>Hurrayyy....Now You Can ADVERTISE With Us...!!!!</h1>
+			
+			{showItem ? (
+				<StripeContainer />
+			) : (
+				<>					
+					<img src={high_five} width="600" height="300" alt='high_five' />
+					<button onClick={() => setShowItem(true)}>Take me to the home </button>
+				</>
+			)}
+		</div>
+	);
 }
 
 export default App;
